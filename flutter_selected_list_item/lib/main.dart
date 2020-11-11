@@ -66,12 +66,9 @@ class _ListViewPageState extends State<ListViewPage> {
       sectionHeaderBuilder: _sectionHeaderBuilder,
       // 这里是通过里面定义的函数在外面实现， 这里不是调用函数， 只是外面实现然后传入函数参数，
       sectionFooterBuilder: _sectionFooterBuilder,
-      headerWidgetBuilder: (ctx) =>
-          _widgetBuilder('HeaderWidget', Colors.green, height: 80),
-      footerWidgetBuilder: (ctx) =>
-          _widgetBuilder('FooterWidget', Colors.green, height: 80),
-      loadMoreWidgetBuilder: (ctx) =>
-          _widgetBuilder('loadMoreWidget', Colors.lightBlue, height: 120),
+      headerWidgetBuilder: (ctx) => _widgetBuilder('HeaderWidget', Colors.green, height: 80),
+      footerWidgetBuilder: (ctx) => _widgetBuilder('FooterWidget', Colors.green, height: 80),
+      loadMoreWidgetBuilder: (ctx) => _widgetBuilder('loadMoreWidget', Colors.lightBlue, height: 120),
 
       itemOnTapCallback: _itemOnTap,
       // 点击回调打印
@@ -163,7 +160,7 @@ class _ListViewPageState extends State<ListViewPage> {
   }
 
   bool _itemShouldTap(BuildContext context, int section, int index) {
-    print('section: $section, index: $index');
+    // print('🔥 section: $section, row: $index');
 
     return index != 0;
   }
@@ -199,8 +196,7 @@ class _ListViewPageState extends State<ListViewPage> {
                     int row = int.parse(_rowTextEditingController.text);
 
                     // 跳转到指定组 & 行
-                    _listViewItemBuilder.scrollTo(section, row,
-                        animation: _animation, duration: Duration(seconds: 1));
+                    _listViewItemBuilder.listViewScrollTo(section, row, animation: _animation, duration: Duration(seconds: 1));
                   },
                   child: Text(
                     'jumpTo',
@@ -278,9 +274,9 @@ class _ListViewPageState extends State<ListViewPage> {
           // TODO: 为什么调用函数不需要传参数, 这里只是引用，具体实现在_listViewItemBuilder中，对应的是listItemBuilder传值
           itemCount: _listViewItemBuilder.itemCount,
           padding: const EdgeInsets.all(0),
-//          controller: _scrollController,
+         controller: _scrollController,
 //          // 滑动监听
-//          scrollDirection: _scrollDirection,
+         scrollDirection: _scrollDirection,
         )),
       ],
     );

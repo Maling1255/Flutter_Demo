@@ -1,3 +1,10 @@
+### 版本  Flutter SDK: Flutter 1.23.0-18.1.pre • channel beta • https://github.com/flutter/flutter.git
+#Framework • revision 198df796aa (4 周前) • 2020-10-15 12:04:33 -0700
+#Engine • revision 1d12d82d9c
+#Tools • Dart 2.11.0 (build 2.11.0-213.1.beta)
+
+
+
 name: flutter_selected_list_item
 description: A new Flutter application.
 
@@ -25,9 +32,13 @@ dependencies:
     sdk: flutter
 
 
+  #添加依赖packages ^表示适配和当前大版本一致的版本，~表示适配和当前小版本一致的版本
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+  logger: ^0.9.4   # log输出
+
 
 dev_dependencies:
   flutter_test:
